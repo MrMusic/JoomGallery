@@ -487,9 +487,14 @@ class CategoryModel extends JoomAdminModel
           $old_table = clone $table;
         }
 
-        if($table->parent_id != $data['parent_id'] || $data['id'] == 0)
+        if($catMoved || $isNew)
         {
           $table->setLocation($data['parent_id'], 'last-child');
+        }
+        elseif($aliasChanged)
+        {
+          // Make sure paths get updated correctly when alias is changed
+          $table->setLocation($data['parent_id'], '');
         }
 
         // Create file manager service
@@ -537,11 +542,19 @@ class CategoryModel extends JoomAdminModel
         // Filesystem changes
 			  $filesystem_success = true;
 
-        if( (!$isNew && $catMoved) || (!$isNew && $aliasChanged) )
+        if(!$isNew && ($catMoved || $aliasChanged))
         {
-          // Action will be performed after storing
+          // Moving and renaming of folders will happen after storing the DB
+          if($catMoved && ($aliasChanged || ($table->alias != $old_table->alias)))
+          {
+            // Moving and renaming folders at the same time is not possible
+            $this->setError(Text::_('COM_JOOMGALLERY_ERROR_CAT_RENAME_AND_MOVE'));
+            $this->component->addLog(Text::_('COM_JOOMGALLERY_ERROR_CAT_RENAME_AND_MOVE'), 'error', 'jerror');
+
+            return false;
+          }
         }
-        else
+        elseif($isNew || !$this->component->getConfig()->get('jg_compatibility_mode', 0))
         {
           // Create folders
           $filesystem_success = $manager->createCategory($table->alias, $table->parent_id);
