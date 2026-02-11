@@ -298,7 +298,7 @@ $canDelete = false;
                             <?php echo Text::_('COM_JOOMGALLERY_HIDDEN'); ?>
                           </span>
                         </div>
-                     <?php endif; ?>
+                      <?php endif; ?>
                     </th>
 
                     <td class="d-none d-lg-table-cell text-center">
