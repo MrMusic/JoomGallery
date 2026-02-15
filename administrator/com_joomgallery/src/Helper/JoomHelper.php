@@ -1390,9 +1390,9 @@ class JoomHelper
       $rgt = $catids[$catId]['rgt'];
 
       // Find all subcategories in the tree
-      foreach ($catids as $id => $cat)
+      foreach($catids as $id => $cat)
       {
-        if ($cat['lft'] >= $lft && $cat['rgt'] <= $rgt)
+        if($cat['lft'] >= $lft && $cat['rgt'] <= $rgt)
         {
           $idsToCount[] = (int) $id;
         }
@@ -1417,6 +1417,5 @@ class JoomHelper
     $db->setQuery($query);
 
     return (int) $db->loadResult();
-
   }
 }

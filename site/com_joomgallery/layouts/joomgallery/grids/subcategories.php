@@ -79,7 +79,7 @@ extract($displayData);
               ?>
               <br>
               <div class"jg-numberofimages"><?php echo Text::sprintf($label, $numberofimages); ?></div>
-            <?php } ?>
+              <?php } ?>
           </div>
           <?php if($description) : ?>
             <?php echo $item->description; ?>
