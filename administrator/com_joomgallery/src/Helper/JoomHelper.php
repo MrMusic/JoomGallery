@@ -1357,7 +1357,7 @@ class JoomHelper
     return new $tableClass(Factory::getContainer()->get(DatabaseInterface::class));
   }
 
-/**
+  /**
    * @param   int    $catId   The id of the category
    *
    * @return  int    number of published images

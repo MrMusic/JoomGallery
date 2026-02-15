@@ -67,6 +67,7 @@ extract($displayData);
               if($image_count)
               {
                 $numberofimages = JoomHelper::getTotalImagesInCategory($item->id);
+
                 if($numberofimages === 1)
                 {
                   $label = 'COM_JOOMGALLERY_NUMBER_IMAGE';
