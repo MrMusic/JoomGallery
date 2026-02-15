@@ -63,6 +63,22 @@ extract($displayData);
             <a class="jg-link" href="<?php echo Route::_(JoomHelper::getViewRoute('category', (int) $item->id)); ?>">
               <?php echo $this->escape($item->title); ?>
             </a>
+            <?php
+              if($image_count)
+              {
+                $numberofimages = JoomHelper::getTotalImagesInCategory($item->id);
+                if($numberofimages === 1)
+                {
+                  $label = 'COM_JOOMGALLERY_NUMBER_IMAGE';
+                }
+                else
+                {
+                  $label = 'COM_JOOMGALLERY_NUMBER_IMAGES';
+                }
+              ?>
+              <br>
+              <div class"jg-numberofimages"><?php echo Text::sprintf($label, $numberofimages); ?></div>
+            <?php } ?>
           </div>
           <?php if($description) : ?>
             <?php echo $item->description; ?>

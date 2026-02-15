@@ -30,6 +30,7 @@ $subcategories_pagination    = $this->params['configs']->get('jg_category_view_s
 $subcategories_caption_align = $this->params['configs']->get('jg_category_view_subcategories_caption_align', 'left', 'STRING');
 $subcategories_description   = $this->params['configs']->get('jg_category_view_subcategories_category_description', 0, 'INT');
 $subcategories_random_image  = $this->params['configs']->get('jg_category_view_subcategories_random_image', 1, 'INT');
+$subcategories_image_count   = $this->params['configs']->get('jg_category_view_subcategories_image_count', 0, 'INT');
 
 // Image params
 $category_class         = $this->params['configs']->get('jg_category_view_class', 'masonry', 'STRING');
@@ -180,6 +181,7 @@ $returnURL  = base64_encode(JoomHelper::getViewRoute('category', $this->item->id
     $subcatData = [
       'layout' => $subcategory_class, 'items' => $this->item->children->items, 'num_columns' => (int) $subcategory_num_columns, 'image_type' => $subcategory_image_type,
       'caption_align'       => $subcategories_caption_align, 'description' => $subcategories_description, 'image_class' => $subcategory_image_class, 'random_image' => (bool) $subcategories_random_image,
+      'image_count' => (bool) $subcategories_image_count,
     ];
   ?>
 
