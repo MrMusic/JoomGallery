@@ -498,6 +498,13 @@ $newCategoryView = Route::_('index.php?option=com_joomgallery&view=usercategory&
                           }
                           ?>
                         </a>
+                        <?php if($item->hidden === 1) : ?>
+                          <div class="small">
+                            <span class="badge bg-secondary">
+                              <?php echo Text::_('COM_JOOMGALLERY_HIDDEN'); ?>
+                            </span>
+                          </div>
+                        <?php endif; ?>
                       </th>
 
                       <td class="d-none d-md-table-cell text-center">
@@ -713,6 +720,13 @@ $newCategoryView = Route::_('index.php?option=com_joomgallery&view=usercategory&
                           }
                           ?>
                         </a>
+                        <?php if($item->hidden === 1) : ?>
+                          <div class="small">
+                            <span class="badge bg-secondary">
+                              <?php echo Text::_('COM_JOOMGALLERY_HIDDEN'); ?>
+                            </span>
+                          </div>
+                        <?php endif; ?>
                       </th>
 
                       <td class="d-none d-lg-table-cell text-center">
@@ -976,6 +990,13 @@ $newCategoryView = Route::_('index.php?option=com_joomgallery&view=usercategory&
                           }
                           ?>
                         </a>
+                        <?php if($item->hidden === 1) : ?>
+                          <div class="small">
+                            <span class="badge bg-secondary">
+                              <?php echo Text::_('COM_JOOMGALLERY_HIDDEN'); ?>
+                            </span>
+                          </div>
+                        <?php endif; ?>
                       </th>
 
                       <td class="d-none d-lg-table-cell text-center">

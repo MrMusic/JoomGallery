@@ -309,6 +309,14 @@ $baseLink_ImagesFilter = 'index.php?option=com_joomgallery&view=userimages&filte
                           }
                           ?>
                         </a>
+                        <?php if($item->hidden === 1) : ?>
+                          <div class="small">
+                            <?php echo LayoutHelper::render('joomla.html.treeprefix', ['level' => $item->level]); ?>
+                            <span class="badge bg-secondary">
+                              <?php echo Text::_('COM_JOOMGALLERY_HIDDEN'); ?>
+                            </span>
+                          </div>
+                        <?php endif; ?>
                       <?php endif; ?>
                     </th>
 
