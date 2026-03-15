@@ -13,6 +13,7 @@
 // phpcs:enable PSR1.Files.SideEffects
 
 use Joomgallery\Component\Joomgallery\Administrator\Helper\JoomHelper;
+use Joomla\CMS\Helper\ModuleHelper;
 use Joomla\CMS\HTML\HTMLHelper;
 use Joomla\CMS\Language\Text;
 use Joomla\CMS\Layout\LayoutHelper;
@@ -61,6 +62,21 @@ $returnURL = base64_encode('index.php?option=com_joomgallery&view=userpanel');
   <!--        method="post" name="adminForm" id="adminForm"-->
   <!--        novalidate aria-label="--><?php //echo Text::_('COM_JOOMGALLERY_USER_PANEL', true); ?><!--">-->
   <div class="jg jg-user-panel ">
+
+  <?php // load modules on jg_upa_top ?>
+  <?php $modules = ModuleHelper::getModules('jg_upa_top'); ?>
+  <?php if(!empty($modules)) : ?>
+    <?php foreach ($modules as $module) : ?>
+      <?php $moduleparams = json_decode($module->params, true); ?>
+      <div class="card">
+        <?php if($module->showtitle) : ?>
+          <?php $moduleheader = '<' . $moduleparams['header_tag'] . ' class="card-header ' . $moduleparams['header_class'] . '">' . htmlspecialchars($module->title) . '</' . $moduleparams['header_tag'] . '>'; ?>
+          <?php echo $moduleheader; ?>
+        <?php endif; ?>
+        <?php echo ModuleHelper::renderModule($module, ['style' => 'none']); ?>
+      </div>
+    <?php endforeach; ?>
+  <?php endif; ?>
 
     <?php if($isShowTitle): ?>
       <h3><?php echo Text::_('COM_JOOMGALLERY_USER_PANEL'); ?></h3>
@@ -122,6 +138,21 @@ $returnURL = base64_encode('index.php?option=com_joomgallery&view=userpanel');
 
     <?php endif; ?>
   </div>
+
+  <?php // load modules on jg_upa_bottom ?>
+  <?php $modules = ModuleHelper::getModules('jg_upa_bottom'); ?>
+  <?php if(!empty($modules)) : ?>
+    <?php foreach ($modules as $module) : ?>
+      <?php $moduleparams = json_decode($module->params, true); ?>
+      <div class="card">
+        <?php if($module->showtitle) : ?>
+          <?php $moduleheader = '<' . $moduleparams['header_tag'] . ' class="card-header ' . $moduleparams['header_class'] . '">' . htmlspecialchars($module->title) . '</' . $moduleparams['header_tag'] . '>'; ?>
+          <?php echo $moduleheader; ?>
+        <?php endif; ?>
+        <?php echo ModuleHelper::renderModule($module, ['style' => 'none']); ?>
+      </div>
+    <?php endforeach; ?>
+  <?php endif; ?>
 </div>
 
 <?php
