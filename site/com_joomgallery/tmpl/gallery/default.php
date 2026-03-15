@@ -87,7 +87,7 @@ $wa->addInlineScript($iniJS, ['position' => 'after'], [], ['com_joomgallery.joom
   <?php // load modules on jg_gal_top ?>
   <?php $modules = ModuleHelper::getModules('jg_gal_top'); ?>
   <?php if(!empty($modules)) : ?>
-    <?php foreach ($modules as $module) : ?>
+    <?php foreach($modules as $module) : ?>
       <?php $moduleparams = json_decode($module->params, true); ?>
       <div class="card">
         <?php if($module->showtitle) : ?>
@@ -146,7 +146,7 @@ $wa->addInlineScript($iniJS, ['position' => 'after'], [], ['com_joomgallery.joom
 <?php // load modules on jg_gal_bottom ?>
 <?php $modules = ModuleHelper::getModules('jg_gal_bottom'); ?>
 <?php if(!empty($modules)) : ?>
-  <?php foreach ($modules as $module) : ?>
+  <?php foreach($modules as $module) : ?>
     <?php $moduleparams = json_decode($module->params, true); ?>
     <div class="card">
       <?php if($module->showtitle) : ?>

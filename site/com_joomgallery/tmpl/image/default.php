@@ -64,7 +64,7 @@ $fields = FieldsHelper::getFields('com_joomgallery.image', $this->item);
 <?php // load modules on jg_img_top ?>
 <?php $modules = ModuleHelper::getModules('jg_img_top'); ?>
 <?php if(!empty($modules)) : ?>
-  <?php foreach ($modules as $module) : ?>
+  <?php foreach($modules as $module) : ?>
     <?php $moduleparams = json_decode($module->params, true); ?>
     <div class="card">
       <?php if($module->showtitle) : ?>
@@ -100,7 +100,7 @@ $fields = FieldsHelper::getFields('com_joomgallery.image', $this->item);
 <?php // load modules on jg_img_bef_info ?>
 <?php $modules = ModuleHelper::getModules('jg_img_bef_info'); ?>
 <?php if(!empty($modules)) : ?>
-  <?php foreach ($modules as $module) : ?>
+  <?php foreach($modules as $module) : ?>
     <?php $moduleparams = json_decode($module->params, true); ?>
     <div class="card">
       <?php if($module->showtitle) : ?>
@@ -202,7 +202,7 @@ $fields = FieldsHelper::getFields('com_joomgallery.image', $this->item);
 <?php // load modules on jg_img_bottom ?>
 <?php $modules = ModuleHelper::getModules('jg_img_bottom'); ?>
 <?php if(!empty($modules)) : ?>
-  <?php foreach ($modules as $module) : ?>
+  <?php foreach($modules as $module) : ?>
     <?php $moduleparams = json_decode($module->params, true); ?>
     <div class="card">
       <?php if($module->showtitle) : ?>

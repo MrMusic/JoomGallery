@@ -105,7 +105,7 @@ if($this->isUserLoggedIn && $this->isUserHasCategory)
   <?php // load modules on jg_upl_top ?>
   <?php $modules = ModuleHelper::getModules('jg_upl_top'); ?>
   <?php if(!empty($modules)) : ?>
-    <?php foreach ($modules as $module) : ?>
+    <?php foreach($modules as $module) : ?>
       <?php $moduleparams = json_decode($module->params, true); ?>
       <div class="card">
         <?php if($module->showtitle) : ?>
@@ -264,7 +264,7 @@ if($this->isUserLoggedIn && $this->isUserHasCategory)
   <?php // load modules on jg_upl_bottom ?>
   <?php $modules = ModuleHelper::getModules('jg_upl_bottom'); ?>
   <?php if(!empty($modules)) : ?>
-    <?php foreach ($modules as $module) : ?>
+    <?php foreach($modules as $module) : ?>
       <?php $moduleparams = json_decode($module->params, true); ?>
       <div class="card">
         <?php if($module->showtitle) : ?>

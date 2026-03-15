@@ -143,7 +143,7 @@ $returnURL  = base64_encode(JoomHelper::getViewRoute('category', $this->item->id
 <?php // load modules on jg_cat_top ?>
 <?php $modules = ModuleHelper::getModules('jg_cat_top'); ?>
 <?php if(!empty($modules)) : ?>
-  <?php foreach ($modules as $module) : ?>
+  <?php foreach($modules as $module) : ?>
     <?php $moduleparams = json_decode($module->params, true); ?>
     <div class="card">
       <?php if($module->showtitle) : ?>
@@ -187,7 +187,7 @@ $returnURL  = base64_encode(JoomHelper::getViewRoute('category', $this->item->id
 <?php // load modules on jg_cat_bef_subcat ?>
 <?php $modules = ModuleHelper::getModules('jg_cat_bef_subcat'); ?>
 <?php if(!empty($modules)) : ?>
-  <?php foreach ($modules as $module) : ?>
+  <?php foreach($modules as $module) : ?>
     <?php $moduleparams = json_decode($module->params, true); ?>
     <div class="card">
       <?php if($module->showtitle) : ?>
@@ -225,7 +225,7 @@ $returnURL  = base64_encode(JoomHelper::getViewRoute('category', $this->item->id
 <?php // load modules on jg_cat_bef_images ?>
 <?php $modules = ModuleHelper::getModules('jg_cat_bef_images'); ?>
 <?php if(!empty($modules)) : ?>
-  <?php foreach ($modules as $module) : ?>
+  <?php foreach($modules as $module) : ?>
     <?php $moduleparams = json_decode($module->params, true); ?>
     <div class="card">
       <?php if($module->showtitle) : ?>
@@ -313,7 +313,7 @@ $returnURL  = base64_encode(JoomHelper::getViewRoute('category', $this->item->id
 <?php // load modules on jg_cat_bottom ?>
 <?php $modules = ModuleHelper::getModules('jg_cat_bottom'); ?>
 <?php if(!empty($modules)) : ?>
-  <?php foreach ($modules as $module) : ?>
+  <?php foreach($modules as $module) : ?>
     <?php $moduleparams = json_decode($module->params, true); ?>
     <div class="card">
       <?php if($module->showtitle) : ?>
