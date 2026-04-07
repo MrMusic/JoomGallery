@@ -102,8 +102,8 @@ if($this->isUserLoggedIn && $this->isUserHasCategory)
 ?>
 
 <div>
-  <?php // load modules on jg_upl_top ?>
-  <?php $modules = ModuleHelper::getModules('jg_upl_top'); ?>
+  <?php // load modules on jg_userupload_top ?>
+  <?php $modules = ModuleHelper::getModules('jg_userupload_top'); ?>
   <?php if(!empty($modules)) : ?>
     <?php foreach($modules as $module) : ?>
       <?php $moduleparams = json_decode($module->params, true); ?>
@@ -261,8 +261,8 @@ if($this->isUserLoggedIn && $this->isUserHasCategory)
 
   <div id="popup-area"></div>
 
-  <?php // load modules on jg_upl_bottom ?>
-  <?php $modules = ModuleHelper::getModules('jg_upl_bottom'); ?>
+  <?php // load modules on jg_userupload_bottom ?>
+  <?php $modules = ModuleHelper::getModules('jg_userupload_bottom'); ?>
   <?php if(!empty($modules)) : ?>
     <?php foreach($modules as $module) : ?>
       <?php $moduleparams = json_decode($module->params, true); ?>

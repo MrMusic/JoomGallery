@@ -140,8 +140,8 @@ $canCheckin = $this->getAcl()->checkACL('editstate', 'com_joomgallery.category',
 $returnURL  = base64_encode(JoomHelper::getViewRoute('category', $this->item->id, $this->item->parent_id, $this->item->language, $this->getLayout()));
 ?>
 
-<?php // load modules on jg_cat_top ?>
-<?php $modules = ModuleHelper::getModules('jg_cat_top'); ?>
+<?php // load modules on jg_category_top ?>
+<?php $modules = ModuleHelper::getModules('jg_category_top'); ?>
 <?php if(!empty($modules)) : ?>
   <?php foreach($modules as $module) : ?>
     <?php $moduleparams = json_decode($module->params, true); ?>
@@ -184,8 +184,8 @@ $returnURL  = base64_encode(JoomHelper::getViewRoute('category', $this->item->id
   <p><?php echo Text::_('COM_JOOMGALLERY_CATEGORY_NO_ELEMENTS') ?></p>
 <?php endif; ?>
 
-<?php // load modules on jg_cat_bef_subcat ?>
-<?php $modules = ModuleHelper::getModules('jg_cat_bef_subcat'); ?>
+<?php // load modules on jg_category_before_subcategories ?>
+<?php $modules = ModuleHelper::getModules('jg_category_before_subcategories'); ?>
 <?php if(!empty($modules)) : ?>
   <?php foreach($modules as $module) : ?>
     <?php $moduleparams = json_decode($module->params, true); ?>
@@ -222,8 +222,8 @@ $returnURL  = base64_encode(JoomHelper::getViewRoute('category', $this->item->id
 
 <?php endif; ?>
 
-<?php // load modules on jg_cat_bef_images ?>
-<?php $modules = ModuleHelper::getModules('jg_cat_bef_images'); ?>
+<?php // load modules on jg_category_before_images ?>
+<?php $modules = ModuleHelper::getModules('jg_category_before_images'); ?>
 <?php if(!empty($modules)) : ?>
   <?php foreach($modules as $module) : ?>
     <?php $moduleparams = json_decode($module->params, true); ?>
@@ -310,8 +310,8 @@ $returnURL  = base64_encode(JoomHelper::getViewRoute('category', $this->item->id
   </div>
 <?php endif; ?>
 
-<?php // load modules on jg_cat_bottom ?>
-<?php $modules = ModuleHelper::getModules('jg_cat_bottom'); ?>
+<?php // load modules on jg_category_bottom ?>
+<?php $modules = ModuleHelper::getModules('jg_category_bottom'); ?>
 <?php if(!empty($modules)) : ?>
   <?php foreach($modules as $module) : ?>
     <?php $moduleparams = json_decode($module->params, true); ?>

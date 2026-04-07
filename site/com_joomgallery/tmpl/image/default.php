@@ -61,8 +61,8 @@ $metadata       = $metadataLayout->render($this->item->imgmetadata);
 $fields = FieldsHelper::getFields('com_joomgallery.image', $this->item);
 ?>
 
-<?php // load modules on jg_img_top ?>
-<?php $modules = ModuleHelper::getModules('jg_img_top'); ?>
+<?php // load modules on jg_image_top ?>
+<?php $modules = ModuleHelper::getModules('jg_image_top'); ?>
 <?php if(!empty($modules)) : ?>
   <?php foreach($modules as $module) : ?>
     <?php $moduleparams = json_decode($module->params, true); ?>
@@ -97,8 +97,8 @@ $fields = FieldsHelper::getFields('com_joomgallery.image', $this->item);
   <?php endif; ?>
 </figure>
 
-<?php // load modules on jg_img_bef_info ?>
-<?php $modules = ModuleHelper::getModules('jg_img_bef_info'); ?>
+<?php // load modules on jg_image_before_info ?>
+<?php $modules = ModuleHelper::getModules('jg_image_before_info'); ?>
 <?php if(!empty($modules)) : ?>
   <?php foreach($modules as $module) : ?>
     <?php $moduleparams = json_decode($module->params, true); ?>
@@ -199,8 +199,8 @@ $fields = FieldsHelper::getFields('com_joomgallery.image', $this->item);
     </table>
 </div>
 
-<?php // load modules on jg_img_bottom ?>
-<?php $modules = ModuleHelper::getModules('jg_img_bottom'); ?>
+<?php // load modules on jg_image_bottom ?>
+<?php $modules = ModuleHelper::getModules('jg_image_bottom'); ?>
 <?php if(!empty($modules)) : ?>
   <?php foreach($modules as $module) : ?>
     <?php $moduleparams = json_decode($module->params, true); ?>

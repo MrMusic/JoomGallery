@@ -63,8 +63,8 @@ $returnURL = base64_encode('index.php?option=com_joomgallery&view=userpanel');
   <!--        novalidate aria-label="--><?php //echo Text::_('COM_JOOMGALLERY_USER_PANEL', true); ?><!--">-->
   <div class="jg jg-user-panel ">
 
-  <?php // load modules on jg_upa_top ?>
-  <?php $modules = ModuleHelper::getModules('jg_upa_top'); ?>
+  <?php // load modules on jg_userpanel_top ?>
+  <?php $modules = ModuleHelper::getModules('jg_userpanel_top'); ?>
   <?php if(!empty($modules)) : ?>
     <?php foreach($modules as $module) : ?>
       <?php $moduleparams = json_decode($module->params, true); ?>
@@ -139,8 +139,8 @@ $returnURL = base64_encode('index.php?option=com_joomgallery&view=userpanel');
     <?php endif; ?>
   </div>
 
-  <?php // load modules on jg_upa_bottom ?>
-  <?php $modules = ModuleHelper::getModules('jg_upa_bottom'); ?>
+  <?php // load modules on jg_userpanel_bottom ?>
+  <?php $modules = ModuleHelper::getModules('jg_userpanel_bottom'); ?>
   <?php if(!empty($modules)) : ?>
     <?php foreach($modules as $module) : ?>
       <?php $moduleparams = json_decode($module->params, true); ?>
