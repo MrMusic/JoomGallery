@@ -14,6 +14,7 @@
 
 use Joomgallery\Component\Joomgallery\Administrator\Helper\JoomHelper;
 use Joomla\CMS\Factory;
+use Joomla\CMS\Helper\ModuleHelper;
 use Joomla\CMS\HTML\HTMLHelper;
 use Joomla\CMS\Language\Text;
 use Joomla\CMS\Layout\LayoutHelper;
@@ -140,6 +141,21 @@ $canCheckin = $this->getAcl()->checkACL('editstate', 'com_joomgallery.category',
 $returnURL  = base64_encode(JoomHelper::getViewRoute('category', $this->item->id, $this->item->parent_id, $this->item->language, $this->getLayout()));
 ?>
 
+<?php // load modules on jg_category_top ?>
+<?php $modules = ModuleHelper::getModules('jg_category_top'); ?>
+<?php if(!empty($modules)) : ?>
+  <?php foreach($modules as $module) : ?>
+    <?php $moduleparams = json_decode($module->params, true); ?>
+    <div class="card">
+      <?php if($module->showtitle) : ?>
+        <?php $moduleheader = '<' . $moduleparams['header_tag'] . ' class="card-header ' . $moduleparams['header_class'] . '">' . htmlspecialchars($module->title) . '</' . $moduleparams['header_tag'] . '>'; ?>
+        <?php echo $moduleheader; ?>
+      <?php endif; ?>
+      <?php echo ModuleHelper::renderModule($module, ['style' => 'none']); ?>
+    </div>
+  <?php endforeach; ?>
+<?php endif; ?>
+
 <?php // Category title ?>
 <?php if($this->item->parent_id > 0) : ?>
   <h2><?php echo Text::sprintf('COM_JOOMGALLERY_CATEGORY_TITLE', $this->escape($this->item->title)); ?></h2>
@@ -169,6 +185,21 @@ $returnURL  = base64_encode(JoomHelper::getViewRoute('category', $this->item->id
   <p><?php echo Text::_('COM_JOOMGALLERY_CATEGORY_NO_ELEMENTS') ?></p>
 <?php endif; ?>
 
+<?php // load modules on jg_category_before_subcategories ?>
+<?php $modules = ModuleHelper::getModules('jg_category_before_subcategories'); ?>
+<?php if(!empty($modules)) : ?>
+  <?php foreach($modules as $module) : ?>
+    <?php $moduleparams = json_decode($module->params, true); ?>
+    <div class="card">
+      <?php if($module->showtitle) : ?>
+        <?php $moduleheader = '<' . $moduleparams['header_tag'] . ' class="card-header ' . $moduleparams['header_class'] . '">' . htmlspecialchars($module->title) . '</' . $moduleparams['header_tag'] . '>'; ?>
+        <?php echo $moduleheader; ?>
+      <?php endif; ?>
+      <?php echo ModuleHelper::renderModule($module, ['style' => 'none']); ?>
+    </div>
+  <?php endforeach; ?>
+<?php endif; ?>
+
 <?php // Subcategories ?>
 <?php if(\count($this->item->children->items) > 0 && ($this->item->id == 1 || $numb_subcategories > 0)) : ?>
   <?php if($this->item->parent_id > 0) : ?>
@@ -191,6 +222,21 @@ $returnURL  = base64_encode(JoomHelper::getViewRoute('category', $this->item->id
     <?php echo $this->item->children->pagination->getListFooter(); ?>
   <?php endif; ?>
 
+<?php endif; ?>
+
+<?php // load modules on jg_category_before_images ?>
+<?php $modules = ModuleHelper::getModules('jg_category_before_images'); ?>
+<?php if(!empty($modules)) : ?>
+  <?php foreach($modules as $module) : ?>
+    <?php $moduleparams = json_decode($module->params, true); ?>
+    <div class="card">
+      <?php if($module->showtitle) : ?>
+        <?php $moduleheader = '<' . $moduleparams['header_tag'] . ' class="card-header ' . $moduleparams['header_class'] . '">' . htmlspecialchars($module->title) . '</' . $moduleparams['header_tag'] . '>'; ?>
+        <?php echo $moduleheader; ?>
+      <?php endif; ?>
+      <?php echo ModuleHelper::renderModule($module, ['style' => 'none']); ?>
+    </div>
+  <?php endforeach; ?>
 <?php endif; ?>
 
 <?php // Category ?>
@@ -264,6 +310,21 @@ $returnURL  = base64_encode(JoomHelper::getViewRoute('category', $this->item->id
       <?php echo Text::_('COM_JOOMGALLERY_CATEGORY_VIEW_BROWSE_IMAGES'); ?>
     </a></p>
   </div>
+<?php endif; ?>
+
+<?php // load modules on jg_category_bottom ?>
+<?php $modules = ModuleHelper::getModules('jg_category_bottom'); ?>
+<?php if(!empty($modules)) : ?>
+  <?php foreach($modules as $module) : ?>
+    <?php $moduleparams = json_decode($module->params, true); ?>
+    <div class="card">
+      <?php if($module->showtitle) : ?>
+        <?php $moduleheader = '<' . $moduleparams['header_tag'] . ' class="card-header ' . $moduleparams['header_class'] . '">' . htmlspecialchars($module->title) . '</' . $moduleparams['header_tag'] . '>'; ?>
+        <?php echo $moduleheader; ?>
+      <?php endif; ?>
+      <?php echo ModuleHelper::renderModule($module, ['style' => 'none']); ?>
+    </div>
+  <?php endforeach; ?>
 <?php endif; ?>
 
 <script>
